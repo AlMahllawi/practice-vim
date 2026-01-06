@@ -1,0 +1,51 @@
+--- THE VIM TAB ARCHITECT DRILL ---
+
+Goal: Master opening, navigating, and managing multiple file tabs.
+
+--- MISSION 1: CREATION ---
+(Goal: Open 3 tabs with different names)
+1. Type ':tabe tab_alpha.txt'
+2. Type ':tabe tab_beta.txt'
+3. Type ':tabe tab_gamma.txt'
+
+--- MISSION 2: NAVIGATION ---
+(Goal: Travel between the tabs using Normal mode)
+1. Type 'gt' to go forward to tab_beta.
+2. Type 'gt' to go forward to tab_gamma.
+3. Type 'gT' to go backward to tab_beta.
+4. Type '1gt' to jump straight to the FIRST tab.
+
+--- MISSION 3: REORGANIZATION ---
+(Goal: Move the current tab's position)
+1. Go to the first tab.
+2. Type ':tabm' to move it to the very end.
+3. Type ':tabm 0' to move it back to the start.
+
+--- MISSION 4: THE WINDOW TO TAB CONVERSION ---
+(Goal: Pull a split window into its own tab)
+1. Type ':vsplit' to split the screen.
+2. On the new split, type 'Ctrl-w T' (Capital T).
+3. Observe: The split window has "popped out" into its own tab.
+
+--- MISSION 5: CLOSING ---
+(Goal: Clean up the workspace)
+1. Type ':tabclose' to close the current tab.
+2. Type ':tabonly' to close EVERY tab except the one you are on.
+
+--- TAB COMMAND CHEAT SHEET ---
+:tabe [file]  : Open a file in a new tab
+gt            : Go to next tab
+gT            : Go to previous tab
+{n}gt         : Go to tab number {n}
+:tabs         : List all open tabs
+:tabm {n}     : Move current tab to position {n}
+:tabclose     : Close current tab
+:tabonly      : Close all other tabs
+Ctrl-w T      : Move current window to a new tab
+
+--- PRACTICE DATA ---
+[TAB 1: BLUEPRINT]
+[TAB 2: DATABASE]
+[TAB 3: SERVER_LOG]
+
+(Try navigating between these imaginary tabs as fast as possible.)

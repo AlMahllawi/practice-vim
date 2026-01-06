@@ -1,0 +1,63 @@
+object-motion
+
+Goal: Master the "Action + Inner/Around + Object" syntax.
+Formula: [Operator] + [i or a] + [Object]
+Examples: 'diw' (Delete Inner Word), 'ci"' (Change Inside Quotes)
+
+--- SECTION 1: WORDS & SENTENCES ---
+(Action: Delete the word 'REPLACE' or the whole sentence.)
+
+1. The quick brown REPLACE jumps over the lazy dog.
+   (Use 'diw' inside 'REPLACE' to delete just the word)
+
+2. This is a bad sentence. This is a good sentence.
+   (Use 'das' to delete "Around Sentence" – it takes the sentence AND the trailing space)
+
+--- SECTION 2: QUOTES & PARENTHESES ---
+(Action: Change the content inside the delimiters.)
+
+3. Constant message = "ORIGINAL_TEXT_HERE"
+   (Use 'ci"' to wipe the text inside quotes and enter Insert mode instantly)
+
+4. function_call(parameter_one, parameter_two)
+   (Use 'di(' or 'dib' to delete everything inside the parentheses)
+
+--- SECTION 3: TAGS (HTML/XML) ---
+(Action: Change the content between tags.)
+
+5. <div>
+     <h1>REPLACE_THIS_TITLE</h1>
+   </div>
+   (Use 'cit' inside the <h1> to change "Inner Tag" content)
+
+--- SECTION 4: THE NESTED CHALLENGE ---
+(Action: Delete the entire outer block.)
+
+{
+    "level_1": {
+        "level_2": "Delete this entire inner curly bracket block"
+    }
+}
+(Put cursor inside level_2 and type 'da{' to delete the brackets and everything inside them)
+
+--- TEXT OBJECTS CHEAT SHEET ---
+
+OPERATORS:
+d : Delete
+c : Change (Delete and start typing)
+y : Yank (Copy)
+v : Visual select
+
+SELECTION MODIFIERS:
+i : Inner (Inside the object, no whitespace/delimiters)
+a : Around (Includes the whitespace or delimiters)
+
+OBJECTS:
+w : word
+s : sentence
+p : paragraph
+" : double quotes
+' : single quotes
+( or b : parentheses (blocks)
+{ or B : curly braces
+t : tags (HTML/XML)

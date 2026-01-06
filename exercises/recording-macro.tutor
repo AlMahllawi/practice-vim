@@ -1,0 +1,27 @@
+--- THE MACRO ASSEMBLY LINE ---
+
+Goal: Reformat this "Dirty Data" into a clean "Key: Value" list.
+From: name-ID#123
+To:   [NAME] ID: 123
+
+(INSTRUCTIONS:
+ 1. Put cursor on the first line 'alice-ID#456'.
+ 2. Type 'qa' to start recording into register 'a'.
+ 3. Perform the fix: 
+    - Type 'I' then '[' then ESC (Insert at start).
+    - Type 'f-' (find the dash).
+    - Type 'cl' then '] ' then ESC (change the dash).
+    - Type 'f#' (find the hash).
+    - Type 'cl' then ': ' then ESC (change the hash).
+ 4. Press 'j' to move to the next line.
+ 5. Type 'q' to STOP recording.
+ 6. Now, type '4@a' to fix the rest of the lines instantly!)
+
+--- DIRTY DATA ---
+alice-ID#456
+bob-ID#789
+charlie-ID#101
+dave-ID#202
+eve-ID#303
+
+--- END OF LIST ---

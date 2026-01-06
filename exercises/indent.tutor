@@ -1,0 +1,60 @@
+--- THE VIM INDENTATION ARCHITECT ---
+
+Goal: Practice Normal mode (>>), Visual mode (V >), and Auto-indent (=).
+
+--- SECTION 1: THE MANUAL SHIFT ---
+(Mission: Align these lines to the right using '>>' and '.')
+
+1. Put cursor on Line A. Type '>>'.
+2. Move to Line B. Type '>>' then '.' to indent twice.
+3. Move to Line C. Type '3>>' to indent three lines at once.
+
+Line A
+Line B
+Line C
+Line D
+Line E
+
+--- SECTION 2: VISUAL BLOCK INDENT ---
+(Mission: Use 'V' to select the block and '>' to shift it.)
+
+1. Position cursor on 'START_BLOCK'.
+2. Press 'V', then 'j' three times to highlight.
+3. Press '>' to indent.
+4. Press '.' immediately to indent again.
+
+START_BLOCK
+    Level 1
+    Level 1
+END_BLOCK
+
+--- SECTION 3: THE AUTO-REPAIR (THE MAGIC FORMULA) ---
+(Mission: Use '==' and 'gg=G' to fix broken formatting.)
+
+1. Move cursor to the 'Broken Line' and type '==' to fix just that line.
+2. Type 'gg=G' to fix the entire file's indentation instantly.
+
+function test() {
+print("This line is too far left")
+    print("This line is too far right")
+        if (true) {
+print("Logic is messy here")
+}
+}
+
+--- SECTION 4: THE BACKWARDS SHIFT ---
+(Mission: Use '<<' to move lines back to the left.)
+
+        Too far right!
+        Bring me back!
+        Use '2<<' here.
+
+--- INDENTATION CHEAT SHEET ---
+>>          : Indent current line right
+<<          : Indent current line left
+{n}>>       : Indent {n} lines
+V [move] >  : Indent visually selected lines
+.           : Repeat last indent command
+==          : Auto-indent current line based on filetype
+gg=G        : Auto-indent the ENTIRE file
+:set sw=4   : Set shift-width to 4 spaces

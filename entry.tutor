@@ -1,0 +1,53 @@
+# Personal Vim Practicing
+It's assumed that you read `:Tutor`.  
+Read the [entry](./entry.tutor) in vim.
+
+## Help
+`:help <whatever>` is eqiuvalent to `K` on a word inside tutor buffer since keywordprg program is `:help`.
+
+K
+
+s
+
+gg
+
+G
+
+f
+
+t
+
+case
+
+gf
+
+bd
+
+pwd
+
+
+## Exercises
+LLM Generated exercises, use `gf` to read the file.
+
+./exercises/yank-put.tutor
+
+./exercises/text-objects.tutor
+
+./exercises/objects-motions.tutor
+
+./exercises/scrolling.tutor
+
+./exercises/search.tutor
+
+./exercises/indent.tutor
+
+./exercises/marker.tutor
+
+./exercises/recording-macro.tutor
+
+./exercises/single-repeat.tutor
+
+./exercises/tabs.tutor
+
+./exercises/window.tutor
+

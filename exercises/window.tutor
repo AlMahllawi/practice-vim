@@ -1,0 +1,57 @@
+--- THE VIM WINDOWS SPLIT-LEVEL DRILL ---
+
+Goal: Master creating, navigating, and resizing window splits (horizontal and vertical).
+
+--- MISSION 1: THE FOUR-WAY SPLIT ---
+(Goal: Break your screen into a 2x2 grid)
+1. Type ':sp' (Horizontal split).
+2. Type 'Ctrl-w j' to move to the bottom window.
+3. Type ':vsp' (Vertical split).
+4. Type 'Ctrl-w k' to go back to the top window.
+5. Type ':vsp'.
+   (You should now have four windows open.)
+
+--- MISSION 2: TELEPORTATION ---
+(Goal: Move between windows using directional keys)
+1. 'Ctrl-w h' : Move LEFT
+2. 'Ctrl-w l' : Move RIGHT
+3. 'Ctrl-w j' : Move DOWN
+4. 'Ctrl-w k' : Move UP
+5. 'Ctrl-w w' : Cycle through all windows sequentially.
+
+--- MISSION 3: RESTRUCTURING ---
+(Goal: Swap window positions)
+1. Move to any window.
+2. 'Ctrl-w r' : Rotate windows (clockwise).
+3. 'Ctrl-w x' : Exchange current window with the next one.
+4. 'Ctrl-w K' : (Shift+k) Move the current window to the very top (full width).
+5. 'Ctrl-w H' : (Shift+h) Move the current window to the far left (full height).
+
+--- MISSION 4: THE RESIZER ---
+(Goal: Adjust the real estate)
+1. ':vertical resize +20'  : Make current window wider.
+2. ':resize -10'           : Make current window shorter.
+3. 'Ctrl-w ='              : Reset all windows to EQUAL size (The "Panic" button).
+
+--- MISSION 5: THE CLEANUP ---
+1. ':q'      : Close the current window.
+2. ':only'   : Kill all windows EXCEPT the current one.
+
+--- WINDOW COMMAND CHEAT SHEET ---
+:sp [file]     : Split horizontally
+:vsp [file]    : Split vertically
+Ctrl-w [h/j/k/l] : Move cursor between splits
+Ctrl-w [H/J/K/L] : Move the window ITSELF to a new position
+Ctrl-w + / -   : Increase/Decrease height
+Ctrl-w > / <   : Increase/Decrease width
+Ctrl-w =       : Balance all windows
+Ctrl-w _       : Maximize current height
+Ctrl-w |       : Maximize current width
+:only          : Close everything else
+
+--- PRACTICE LAYOUT ---
+[ WINDOW A ] | [ WINDOW B ]
+---------------------------
+[ WINDOW C ] | [ WINDOW D ]
+
+(Try to move from A to D using 'Ctrl-w l' then 'Ctrl-w j'.)

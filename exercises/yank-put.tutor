@@ -1,0 +1,39 @@
+--- THE VIM ALCHEMY LAB PRACTICE ---
+
+Goal 1: Double the ingredients. 
+(Use 'yy' to yank the line, then 'p' to duplicate it below.)
+
+1. Dragon Scale
+2. Phoenix Feather
+
+
+Goal 2: Swap the positions.
+(The 'Lead' is in the wrong spot. Use 'dd' to delete it into the buffer, 
+then move to the gold line and use 'P' to paste it BEFORE 'Gold'.)
+
+- Lead
+- Gold
+
+
+Goal 3: The "Sandwich" Technique.
+(Yank the word 'BREAD' using 'yiw'. Move to 'CHEESE' and use 'P' 
+to paste before it, then move to the end and use 'p' to paste after it.)
+
+BREAD
+CHEESE
+
+
+Goal 4: Recursive Repair.
+(Copy the word 'ERROR' and use 'p' or 'P' to fill the gaps 
+until the line is complete. Do not type a single letter.)
+
+[ERROR] [_____] [ERROR] [_____] [ERROR]
+
+
+Goal 5: The Master Stack.
+(Yank the 'TOP' line and 'p' it three times. Then yank the 'BOTTOM' 
+line and 'P' it three times above the existing BOTTOM.)
+
+=== TOP ===
+
+=== BOTTOM ===

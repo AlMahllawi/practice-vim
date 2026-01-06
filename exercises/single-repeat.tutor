@@ -1,0 +1,69 @@
+--- THE POWER OF THE PERIOD (.) ---
+
+1. WHAT IT DOES
+---------------
+The dot command repeats the last change you made. A "change" is defined 
+as any command that modifies the buffer, including the keystrokes 
+from the moment you entered Insert mode until you hit <Esc>.
+
+2. WHAT COUNTS AS A "CHANGE"?
+-----------------------------
+- 'dd'          (Delete a line)
+- 'x'           (Delete a character)
+- 'r'           (Replace a character)
+- 'cwNewText'   (Change word to 'NewText')
+- 'IHello'      (Insert 'Hello' at the start of a line)
+- '>>'          (Indent a line)
+
+3. WHAT DOES NOT COUNT?
+-----------------------
+- Movement keys (h, j, k, l, w, e, gg, G)
+- Searching (/, ?, n, N)
+- Selecting (v, V)
+- Scrolling (Ctrl-d, Ctrl-u)
+
+
+
+4. THE "DOT FORMULA" FOR SPEED
+------------------------------
+The real magic of the period is combining it with Search. 
+Formula: [Search for target] + [Make change] + [Find next] + [Repeat]
+
+PRACTICE DRILL:
+1. Move to the list below.
+2. Search for the word 'BAD':  /BAD <Enter>
+3. Change it to 'GOOD':        cwGOOD <Esc>
+4. Move to the next one:       n
+5. Repeat the change:          .
+6. Repeat:                     n . n .
+
+- The BAD apple
+- A BAD day
+- This is a BAD habit
+- One BAD move
+
+--- THE DOT COMMAND CHALLENGE ---
+(Mission: Perform the task once, then use '.' to finish the rest.)
+
+A) Indent these lines:
+   (Type '>>' on the first line, then 'j.' for each subsequent line)
+   Line 1
+   Line 2
+   Line 3
+
+B) Delete the first word of every line:
+   (Type 'dw' on the first line, then 'j.' for the others)
+   DELETE_ME Alpha
+   DELETE_ME Beta
+   DELETE_ME Gamma
+
+C) Append a semicolon to the end of lines:
+   (Type 'A;' then <Esc> on the first line, then 'j.' for the others)
+   const x = 10
+   const y = 20
+   const z = 30
+
+--- PRO-TIP: THE DOT WITH VISUAL MODE ---
+If you select a block of text with 'V' and then perform an indent 
+using '>', you can hit '.' immediately after to keep indenting 
+the same selection further!

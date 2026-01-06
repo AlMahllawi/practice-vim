@@ -1,0 +1,84 @@
+--- THE VIM SEARCH & REGEX GAUNTLET ---
+
+[MISSION CONTROL]
+Task 1: Jump to all occurrences of 'ERROR' using '/' and '?'.
+Task 2: Use '*' and '#' to find matching variable names instantly.
+Task 3: Practice Normal Mode substitution ('s') and Ranged substitution (':1,5s').
+
+--- SECTION 1: SEARCH NAVIGATION ---
+(Goal: Practice / and ? navigation)
+1. Type '/CRITICAL' to find the first error.
+2. Press 'n' to go to the next, 'N' for previous.
+3. Type '?START' to search backwards to the beginning.
+
+[START_OF_LOG]
+LOG: INFO - System nominal.
+LOG: CRITICAL - Engine failure detected.
+LOG: INFO - Rebooting...
+LOG: CRITICAL - Pressure seal breached.
+LOG: INFO - Recovery successful.
+
+--- SECTION 2: INSTANT SEARCH ---
+(Goal: Practice '*' and '#')
+1. Put your cursor on the word 'user_data_variable'.
+2. Press '*' to find where it is used later.
+3. Press '#' to find where it was defined earlier.
+
+Line 45: user_data_variable = "Initializing..."
+Line 60: if (check(user_data_variable)) {
+Line 85: print("Status: " + user_data_variable)
+
+--- SECTION 3: SUBSTITUTE ---
+(Goal: Practice 's' for the current line and line ranges)
+
+A) Single Line Fix:
+Move your cursor to the line below. Type ':s/OFF/ON/' to fix only this line.
+WiFi: OFF, Bluetooth: OFF
+
+B) Ranged Fix:
+Type ':41,43s/OFF/ON/g' to fix part of the block below without touching other lines.
+Device1: WiFi: OFF, Bluetooth: OFF
+Device2: WiFi: OFF, Bluetooth: OFF
+Device3: WiFi: OFF, Bluetooth: OFF
+Device4: WiFi: OFF, Bluetooth: OFF
+Device5: WiFi: OFF, Bluetooth: OFF
+
+C) Visual Range Fix:
+Press 'V' to select the three lines below, then type ':s/TEMP/PERM/g'.
+(Vim will automatically show :'<,'>s/ which means "in selection")
+TEMP_01
+TEMP_02
+TEMP_03
+TEMP_04
+TEMP_05
+
+--- SECTION 4: GLOBAL REGEX REPLACE ---
+(Goal: Practice :%s/search/replace/g)
+Mission: Change all dates from "DD-MM-YYYY" format to "[YYYY/MM/DD]".
+
+Fix these lines using this command:
+:%s/\(\d\{2}\)-\(\d\{2}\)-\(\d\{4}\)/[\3\/\2\/\1]/g
+
+01-05-2024
+12-08-1995
+25-12-2023
+
+--- SECTION 5: THE CLEANUP CHALLENGE ---
+Mission: Replace all 'BUG_ID_###' with 'FIXED'.
+
+BUG_ID_001
+BUG_ID_999
+BUG_ID_452
+
+Command hint: :%s/BUG_ID_\d\{3}/FIXED/g
+
+--- SEARCH & REPLACE CHEAT SHEET ---
+/pattern        : Search forward
+?pattern        : Search backward
+* : Search forward for word under cursor
+#               : Search backward for word under cursor
+:s/old/new/     : Replace first 'old' with 'new' on CURRENT line
+:s/old/new/g    : Replace all 'old' with 'new' on CURRENT line
+:10,20s/old/new : Replace 'old' with 'new' between lines 10 and 20
+:%s/old/new/g   : Replace all 'old' with 'new' in WHOLE file
+:%s/old/new/gc  : Replace all with CONFIRMATION for each change

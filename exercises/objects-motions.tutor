@@ -1,0 +1,75 @@
+:help object-motions
+
+Goal: Master surgical editing using "Action + Inner/Around + Object".
+
+--- SECTION 1: THE "INNER" STRIKE (i) ---
+(Mission: Change content inside delimiters without removing the delimiters.)
+
+1. Change the parameters: Move cursor inside () and type 'ci('.
+2. Change the string: Move cursor inside "" and type 'ci"'.
+3. Change the list: Move cursor inside [] and type 'ci['.
+
+   func_call(variable_one, variable_two, variable_three)
+   message = "Replace this entire sentence quickly"
+   colors = ["red", "green", "blue", "yellow"]
+
+--- SECTION 2: THE "AROUND" SWEEP (a) ---
+(Mission: Delete the object AND its delimiters/whitespace.)
+
+1. Delete the whole argument: Put cursor on 'apple' and type 'da('.
+2. Delete the word + space: Put cursor on 'REDUNDANT' and type 'daw'.
+3. Delete the tag: Put cursor on '<span>' and type 'dat'.
+
+   process(apple)
+   This is a REDUNDANT word in the middle.
+   <div><span>Delete this whole span tag</span></div>
+
+--- SECTION 3: BRACES & BLOCKS ---
+(Mission: Clear out code blocks or move between them.)
+
+1. Delete inner code: Put cursor inside { } and type 'di{'.
+2. Jump to start of block: Use '[['.
+3. Jump to end of block: Use ']]'.
+
+   if (condition) {
+       // All of this
+       // should be
+       // deleted
+       return false;
+   }
+
+--- SECTION 4: SENTENCES & PARAGRAPHS ---
+(Mission: Manipulation of prose and text blocks.)
+
+1. Delete this sentence: Use 'das' anywhere in the sentence.
+2. Change the paragraph: Use 'cip' to rewrite the block below.
+
+   This is the first sentence. This is the target sentence. This is the third.
+
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+   Sed do eiusmod tempor incididunt ut labore et dolore 
+   magna aliqua. Ut enim ad minim veniam.
+
+--- THE .TUTOR GUIDE ADDITION ---
+
+:help object-motions
+Text objects allow you to operate on words (w), sentences (s), paragraphs (p), 
+or blocks delimited by (), [], {}, "", '', and tags (t). Using 'i' targets 
+the content, while 'a' targets the content plus the surrounding characters.
+
+[gg & G](:help cursor-motions)
+- [gg](:help gg): Jump to start of file.
+- [G](:help G): Jump to end of file.
+
+[Substitute](:help :s)
+- [s](:help :s): The pattern replacement tool.
+
+--- QUICK REFERENCE TABLE ---
+| Command | Result                          |
+|---------|---------------------------------|
+| ciw     | Change Inner Word               |
+| daw     | Delete Around Word (with space) |
+| di"     | Delete Inside Quotes            |
+| ca(     | Change Around Parentheses       |
+| dit     | Delete Inside Tag               |
+| yap     | Yank (Copy) Around Paragraph    |
