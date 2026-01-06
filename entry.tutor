@@ -25,6 +25,8 @@ bd
 
 pwd
 
+J
+
 
 ## Exercises
 LLM Generated exercises, use `gf` to read the file.
@@ -54,4 +56,6 @@ LLM Generated exercises, use `gf` to read the file.
 ./exercises/mini.surround.tutor
 
 ./exercises/newline-substitute.tutor
+
+./exercises/folding.tutor
 

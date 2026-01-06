@@ -1,0 +1,71 @@
+--- VIM FOLDING: THE COMPLETE GUIDE ---
+
+Folding allows you to collapse sections of code to get a high-level view of 
+your file. Neovim can fold based on indentation, syntax, or Treesitter.
+
+1. THE BASIC CONTROLS
+---------------------
+All folding commands start with 'z' (it looks like a folded paper).
+
+- 'za' : Toggle (Open/Close) the current fold.
+- 'zo' : Open the current fold.
+- 'zc' : Close the current fold.
+- 'zR' : Open ALL folds in the file (Reset).
+- 'zM' : Close ALL folds in the file (Mighty close).
+
+
+
+2. FOLDING METHODS (init.lua)
+-----------------------------
+In Kickstart, you should use Treesitter for the most intelligent folding.
+Add these to your 'Setting options' section:
+
+- vim.o.foldmethod = "expr"
+- vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+- vim.o.foldlevel = 99 -- Start with all folds open
+
+3. VISUAL FOLDING
+-----------------
+You can manually create folds for any text you select:
+1. Select lines with 'V'.
+2. Type 'zf'.
+3. The selection is now a manual fold.
+
+--- THE .TUTOR GUIDE ADDITION ---
+
+[Folding](:help folding)
+Folding is a "view" property. It doesn't change the text, only how it is 
+displayed. If you delete a folded line, you delete the content inside it!
+
+[gg & G](:help cursor-motions)
+- [zj](:help zj): Jump to the start of the next fold.
+- [zk](:help zk): Jump to the end of the previous fold.
+
+[Object Motions](:help object-motions)
+Folds respect text objects. You can fold an entire function block by 
+placing the cursor inside and using a custom mapping or 'zfaf'.
+
+[Substitute](:help :s)
+- [s](:help :s): Search and replace works inside closed folds, but it 
+  will often open the fold to show you the match.
+
+--- FOLDING CHEAT SHEET ---
+| Command | Result                                      |
+|---------|---------------------------------------------|
+| za      | Toggle fold at cursor                       |
+| zc / zo | Close / Open fold                           |
+| zM / zR | Close All / Open All                        |
+| zd      | Delete fold at cursor (manual folds only)   |
+| [z / ]z | Move to start/end of current open fold      |
+
+
+
+--- PRACTICE TASK ---
+(Mission: Practice toggling and navigating folds)
+
+1. Ensure Treesitter is installed for Lua.
+2. Go to your 'init.lua'.
+3. Find a large block (like the 'lazy' setup).
+4. Press 'zc' to hide it.
+5. Press 'zo' to bring it back.
+6. Use 'zj' to find the next folded section.
