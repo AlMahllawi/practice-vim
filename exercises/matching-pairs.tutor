@@ -1,0 +1,69 @@
+--- VIM NAVIGATION: MATCHING PAIRS (%) ---
+
+In Vim, the `%` key is your primary tool for jumping between matching brackets, 
+parentheses, tags, and even preprocessor directives.
+
+1. THE BASIC JUMP (%)
+---------------------
+- Place your cursor on any `(`, `[`, or `{`.
+- Press `%`.
+- Result: Your cursor instantly jumps to the corresponding `)`, `]`, or `}`.
+- Pressing `%` again jumps you back to the start.
+
+
+
+2. BEYOND BRACKETS: TAGS & BLOCKS
+---------------------------------
+By default, Vim only handles basic brackets. However, since you are using 
+**Kickstart** (which includes Treesitter and often `vim-matchup`), your `%` 
+is much more powerful:
+
+- HTML/XML: Jump between `<div>` and `</div>`.
+- Lua/Python: Jump between `if`, `else`, and `end`.
+- C/C++: Jump between `#if` and `#endif`.
+
+3. THE "MATCHUP" ENHANCEMENT
+----------------------------
+In modern Neovim setups, the `%` key is often enhanced to show you the 
+matching pair in the distance even before you jump.
+- Highlight: The matching pair is often underlined or highlighted.
+- Virtual Text: If the matching pair is off-screen, some plugins show the 
+  matching line as a "ghost" at the top of the window.
+
+--- THE .TUTOR GUIDE ADDITION ---
+
+[Percent](:help %)
+The percent sign is a motion. This means you can combine it with operators!
+- 'd%': Delete everything from the current bracket to its match.
+- 'v%': Visually select everything between the pairs.
+- 'y%': Yank (copy) the entire block.
+
+[Matchit](:help matchit)
+Vim includes a plugin called 'matchit' that extends '%' to handle words 
+like 'if' and 'end'. In Neovim, this is usually enabled by default.
+
+[Object Motions](:help object-motions)
+Don't forget the 'i' and 'a' variants! 
+- 'ci(': Change inside parentheses.
+- 'da{': Delete around curly braces (including the braces).
+
+--- MATCHING PAIR CHEAT SHEET ---
+| Command | Action                                           |
+|---------|--------------------------------------------------|
+| %       | Jump to matching bracket/tag/keyword             |
+| v%      | Select everything from start to end of block     |
+| d%      | Delete the entire balanced block                 |
+| [%      | Jump to the UNMATCHED '(' before the cursor      |
+| ]%      | Jump to the UNMATCHED ')' after the cursor       |
+
+
+
+--- PRACTICE TASK ---
+(Mission: Delete a code block instantly)
+
+if (condition) {
+	statement1;
+	statement2;
+	statement3;
+	statement4;
+}

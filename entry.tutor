@@ -59,3 +59,5 @@ LLM Generated exercises, use `gf` to read the file.
 
 ./exercises/folding.tutor
 
+./exercises/matching-pairs.tutor
+
