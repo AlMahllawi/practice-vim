@@ -1,0 +1,73 @@
+--- THE MINI.SURROUND SURGICAL DRILL ---
+
+Goal: Master the 'sa', 'sd', and 'sr' mappings provided by mini.surround.
+Note: mini.surround uses the 's' prefix by default.
+
+--- SECTION 1: ADD SURROUND (sa) ---
+(Mission: Wrap words and lines in delimiters.)
+Formula: sa + [motion] + [char]
+
+1. Wrap 'apple' in double quotes: Type 'saiw"'
+2. Wrap 'banana' in parentheses: Type 'saiw)'
+3. Wrap 'cherry' in brackets: Type 'saiw]'
+4. Wrap the whole line in <div>: Type 'Vsat' then enter "div"
+
+   apple
+   banana
+   cherry
+   This is a standalone line.
+
+--- SECTION 2: DELETE SURROUND (sd) ---
+(Mission: Strip delimiters away.)
+Formula: sd + [char]
+
+1. Remove the quotes: Type 'sd"'
+2. Remove the curly braces: Type 'sd}'
+3. Remove the HTML tags: Type 'sdt'
+
+   "unquote me"
+   { delete_my_braces }
+   <p>strip_this_tag</p>
+
+--- SECTION 3: REPLACE SURROUND (sr) ---
+(Mission: Swap one delimiter for another.)
+Formula: sr + [old_char] + [new_char]
+
+1. Change "double" to 'single' quotes: Type 'sr"''
+2. Change (parens) to [brackets]: Type 'sr()]'
+3. Change <b> to <i>: Type 'srtt' then enter "i"
+
+   "change to single"
+   (swap to brackets)
+   <b>bold to italic</b>
+
+--- THE .TUTOR GUIDE ADDITION ---
+
+[mini.surround](:help mini.surround)
+A fast, modern alternative to vim-surround. It allows you to add (sa), 
+delete (sd), and replace (sr) surrounding delimiters using motions 
+and text-objects.
+
+[object-motions](:help object-motions)
+Mini.surround works best when combined with text-objects. For example, 
+'saiw' (surround add inner word) is more precise than just 'saw'.
+
+[gg & G](:help cursor-motions)
+- [gg](:help gg): Jump to start of file.
+- [G](:help G): Jump to end of file.
+
+--- MINI.SURROUND CHEAT SHEET ---
+sa{motion}{char} : Add surrounding
+sd{char}         : Delete surrounding
+sr{old}{new}     : Replace surrounding
+sh{char}         : Highlight surrounding (if supported)
+sf{char}         : Find surrounding (forward)
+
+
+
+--- CHALLENGE: THE NESTED SWAP ---
+1. Go to the line below.
+2. Replace the inner single quotes with double quotes: 'sr''"'
+3. Then replace the outer parentheses with curly braces: 'sr(}'
+
+   ( 'nested_text' )

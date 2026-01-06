@@ -51,3 +51,5 @@ LLM Generated exercises, use `gf` to read the file.
 
 ./exercises/window.tutor
 
+./exercises/mini.surround.tutor
+
