@@ -53,3 +53,5 @@ LLM Generated exercises, use `gf` to read the file.
 
 ./exercises/mini.surround.tutor
 
+./exercises/newline-substitute.tutor
+

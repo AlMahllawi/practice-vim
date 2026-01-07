@@ -1,0 +1,64 @@
+--- THE VIM SUBSTITUTE WITH NEWLINE GUIDE ---
+
+In Vim, performing a search and replace to insert a newline (break line) 
+requires a specific syntax because the literal '\n' character behaves 
+differently in the replacement string than it does in the search pattern.
+
+1. THE SPECIAL CHARACTER (\r)
+------------------------------
+To insert a real carriage return (newline) in the REPLACEMENT part of 
+the command, you must use '\r' instead of '\n'.
+
+Command: :s/pattern/\r/g
+
+- \n in the search pattern = matches a newline.
+- \r in the replacement string = inserts a newline.
+
+
+
+2. COMMON SCENARIOS
+-------------------
+A) Split a comma-separated list into lines:
+   :%s/, /,\r/g
+
+B) Add a blank line after every semicolon:
+   :%s/;/;\r\r/g
+
+C) Break a long string at a specific word:
+   :s/BREAK_HERE/\rBREAK_HERE/
+
+--- THE .TUTOR GUIDE ADDITION ---
+
+[Substitute Newline](:help sub-replace-special)
+When using the substitute command, '\r' represents a carriage return. Using 
+'\n' in the replacement string will often insert a "null" character (^@) 
+instead of a line break.
+
+[gg & G](:help cursor-motions)
+- [gg](:help gg): Jump to start of file.
+- [G](:help G): Jump to end of file.
+
+[Object Motions](:help object-motions)
+You can apply a substitution to a specific text object by visually 
+selecting it (e.g., 'vip' for a paragraph) then typing ':s/...'.
+
+[Substitute](:help :s)
+- [s](:help :s): The primary pattern replacement tool. Syntax: :[range]s/find/replace/[flags]
+
+--- NEWLINE CHEAT SHEET ---
+| Command            | Result                                      |
+|--------------------|---------------------------------------------|
+| :s/ / \r /g        | Replaces every space with a newline         |
+| :s/\s\+/\r/g       | Collapses multiple spaces into one newline  |
+| Ctrl-v + Enter     | Literal way to type a newline in the prompt |
+
+
+
+--- PRACTICE TASK ---
+(Mission: Convert this single line into a vertical list.)
+
+Current: item1, item2, item3, item4
+
+1. Put your cursor on the line above.
+2. Type: :s/, /,\r/g
+3. Press <Enter>.
