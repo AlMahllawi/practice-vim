@@ -52,7 +52,23 @@ TEMP_03
 TEMP_04
 TEMP_05
 
---- SECTION 4: GLOBAL REGEX REPLACE ---
+--- SECTION 4: SEARCH IN VISUAL SELECTION ---
+(Goal: Search only within a highlighted block)
+
+1. Highlight the block below using 'V' (Visual Line mode).
+2. While highlighted, type '/\%Vtarget'
+3. This will only find 'target' inside the grayed-out selection.
+
+[IGNORE THIS BLOCK]
+target_data = 0
+[END IGNORE]
+
+[SEARCH WITHIN THIS SELECTED BLOCK]
+target_data = 100
+target_data = 200
+[END SELECTION]
+
+--- SECTION 5: GLOBAL REGEX REPLACE ---
 (Goal: Practice :%s/search/replace/g)
 Mission: Change all dates from "DD-MM-YYYY" format to "[YYYY/MM/DD]".
 
@@ -63,7 +79,7 @@ Fix these lines using this command:
 12-08-1995
 25-12-2023
 
---- SECTION 5: THE CLEANUP CHALLENGE ---
+--- SECTION 6: THE CLEANUP CHALLENGE ---
 Mission: Replace all 'BUG_ID_###' with 'FIXED'.
 
 BUG_ID_001
@@ -73,12 +89,14 @@ BUG_ID_452
 Command hint: :%s/BUG_ID_\d\{3}/FIXED/g
 
 --- SEARCH & REPLACE CHEAT SHEET ---
-/pattern        : Search forward
-?pattern        : Search backward
+/pattern         : Search forward
+?pattern         : Search backward
+/\%Vpattern      : Search only within Visual Selection
 * : Search forward for word under cursor
-#               : Search backward for word under cursor
-:s/old/new/     : Replace first 'old' with 'new' on CURRENT line
-:s/old/new/g    : Replace all 'old' with 'new' on CURRENT line
-:10,20s/old/new : Replace 'old' with 'new' between lines 10 and 20
-:%s/old/new/g   : Replace all 'old' with 'new' in WHOLE file
-:%s/old/new/gc  : Replace all with CONFIRMATION for each change
+#                : Search backward for word under cursor
+:s/old/new/      : Replace first 'old' with 'new' on CURRENT line
+:s/old/new/g     : Replace all 'old' with 'new' on CURRENT line
+:'<,'>s/old/new/g: Replace 'old' with 'new' in Visual Selection
+:10,20s/old/new  : Replace 'old' with 'new' between lines 10 and 20
+:%s/old/new/g    : Replace all 'old' with 'new' in WHOLE file
+:%s/old/new/gc   : Replace all with CONFIRMATION for each change
